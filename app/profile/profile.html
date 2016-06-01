@@ -1,0 +1,41 @@
+<div ng-controller="NavigationController">
+
+	<div class="row">
+		<h1>{{userInfo.username}}</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<img src="{{userInfo.image}}" width="200"></br>
+		</div>
+		<div class="col-md-9">
+			<strong>Email:</strong> {{userInfo.email}}</br></br>
+			<strong>Bio:</strong> {{userInfo.bio}}
+		</div>
+	</div>
+	</br>
+	<div class="row">
+		<div class="userFollowers col-md-3">
+			<h3>Following</h3>
+			Follower 1
+		</div>
+		<div class="userWastes col-md-9">
+			<h3>Tweets</h3>
+			
+				<div ng-repeat="waste in userWastes">
+		            <div class="wasteAll">
+		            	<div class="wasteImage">
+		            		<img src="{{userInfo.image}}" class="img-responsive" width="100">
+		            	</div>
+		            	<div class="wasteInfo">
+			            	{{waste.date | date: 'MM/dd/yyyy hh:mm'}}
+			                <p>{{waste.content}}</p>
+		            	</div>
+		            </div>
+		        </div>
+		    	
+	        
+		</div>
+	</div>
+</br></br></br></br>	
+</div>

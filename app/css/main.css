@@ -1,0 +1,37 @@
+/* Base Elements */
+
+body{
+	background-color: #f0f3f4;
+}
+
+.navbar{
+	margin-bottom: 0;
+}
+.waste-section img {
+    width: 100px;
+    height: 100px;
+}
+.loginForm ul{
+	margin-top: 8px;
+}
+.loginForm ul li{
+	display:inline;
+	margin-left: 10px;
+}
+.loginForm .form-control, .loginForm .btn{
+	width:auto;
+	max-width: 150px;
+}
+
+.wasteImage{
+	display:inline-block;
+}
+.wasteInfo{
+	display: inline-block;
+	margin-left:20px;
+	vertical-align: top;
+}
+.wasteAll{
+	margin-top:15px;
+	background-color:white;
+}

@@ -1,0 +1,44 @@
+<div class="row">
+	<nav class="navbar navbar-default" ng-controller="NavigationController">
+		<div class="container-fluid">
+		  
+		  <div class="col-xs-12 col-sm-5 col-md-3">
+		      <div class="navbar-header">
+		      	
+		    	<div class="col-xs-7 col-sm-12">
+		        	<a ui-sref="main" class="navbar-brand">Musicians Twitter</a>
+		    	</div>
+		    	<div class="col-xs-5">
+		            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+		              <span class="sr-only">Toggle navigation</span>
+		              <span class="icon-bar"></span>
+		              <span class="icon-bar"></span>
+		              <span class="icon-bar"></span>
+		            </button>
+		    	</div>
+		      </div>
+		  </div>
+
+			<div class="col-xs-12 col-sm-7 col-md-9" id="navBar">          
+		      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+		              
+		        <ul class="nav navbar-nav navbar-right col-sm-12">
+		        		
+		        	<div ng-show="!loggedIn" class="loginForm"> 
+		                <ul>
+		                	<li><a ui-sref="login" class="col-sm-3">Login</a></li>
+		                	<li><a ui-sref="signUp" class="col-sm-3">Signup</a></li>
+		                </ul>
+		            </div>
+		            <div ng-show="loggedIn"> 
+		            	<li class="col-sm-1 col-md-4"><a ui-sref="editProfile">Edit Profile</a></li>
+				        <li class="col-sm-1 col-md-4"><a ui-sref="follow">Follow Users</a></li>
+				        <li class="col-sm-1 col-md-4"><a ng-click="logOut();">Logout</a></li>               
+		            </div>
+		      		
+		        </ul>
+		      </div>
+		    </div>
+		</div>
+	</nav>
+</div>

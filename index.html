@@ -1,0 +1,35 @@
+<html ng-app="TimeWaste">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="app/css/main.css" />
+    </head>
+    
+    <navigation></navigation>
+      
+    <body>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </body>
+    
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    
+    <!-- Controllers -->
+    <script src="app/signup/signup-controller.js"></script>
+    <script src="app/login/login-controller.js"></script>
+    <script src="app/navigation/navigation-controller.js"></script>
+    <script src="app/profile/edit-profile-controller.js"></script>
+    <script src="app/profile/profile-controller.js"></script>
+    <script src="app/main/main-controller.js"></script>
+	<script src="app/follow/follow-controller.js"></script>
+    
+    
+    <!-- Libraries -->
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+    
+</html>

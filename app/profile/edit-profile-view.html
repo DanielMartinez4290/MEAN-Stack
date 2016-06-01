@@ -1,0 +1,19 @@
+<div class="col-sm-8 col-sm-offset-2">
+
+	<div class="row">
+		<h1>Edit Profile</h1>
+	</div>
+
+	<div class="row">
+		<div class="button btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" >Upload Picture</div>
+	</div>
+	</br>
+	<div class="row">
+	    Update Username: <input class="form-control" ng-model="user.username" ng-blur="updateUsername()">
+	</div>
+
+	<div class="row">
+	    Update Bio: <textarea class="form-control" ng-model="user.bio" ng-blur="updateBio()"> </textarea>
+	</div>
+    </br></br>
+</div>
