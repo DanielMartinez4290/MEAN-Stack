@@ -24,6 +24,7 @@ app.get('/', function(req, res){
     res.sendfile('index.html');
 });
 
+
 //Authentication
 app.post('/api/user/signup', authenticationController.signup);
 app.post('/api/user/login', authenticationController.login);
@@ -42,6 +43,7 @@ app.get('/api/waste/getUserWastes/:id', wasteController.getUserWastes);
 app.get('/api/users/getUserInfo/:id', usersController.getUserInfo);
 app.get('/api/users/get', usersController.getUsers);
 app.post('/api/users/follow', usersController.followUser);
+
 
 app.listen('3000', function (){
     console.log("Listening for Local Host 3000");

@@ -1,35 +1,59 @@
 <div ng-controller="NavigationController">
 
 	<div class="row">
-		<h1>{{userInfo.username}}</h1>
+		<div class="col-md-4">
+			<div class="usernameBackground">
+				<h1>{{userInfo.username}}</h1>
+			</div>
+		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-3">
-			<img src="{{userInfo.image}}" width="200"></br>
+		<div class="col-md-4 userImage">
+			<div class="userImageBackground">
+				<img src="{{userInfo.image}}" width="200"></br>
+			</div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-8 userInfo">
 			<strong>Email:</strong> {{userInfo.email}}</br></br>
 			<strong>Bio:</strong> {{userInfo.bio}}
 		</div>
 	</div>
 	</br>
 	<div class="row">
-		<div class="userFollowers col-md-3">
-			<h3>Following</h3>
-			Follower 1
+		<div class="userFollowers col-md-4">
+			<div class="userFollowersHeaderBackground">
+				<h3>Following</h3>
+			</div>
+			<div class="userFollowersBackground">
+				<div ng-repeat="follower in followerObjArray" class="col-md-4 followerWhole">
+					<a href="/#/profile/{{follower.id}}"><img src="{{follower.image}}"></a>
+					<div class="followerUsername">
+						{{follower.username}}
+					</div>
+					
+				</div>
+				
+			</div>
 		</div>
-		<div class="userWastes col-md-9">
+		<div class="userWastes col-md-8">
 			<h3>Tweets</h3>
 			
 				<div ng-repeat="waste in userWastes">
 		            <div class="wasteAll">
 		            	<div class="wasteImage">
-		            		<img src="{{userInfo.image}}" class="img-responsive" width="100">
+		            		<img src="{{userInfo.image}}">
 		            	</div>
 		            	<div class="wasteInfo">
-			            	{{waste.date | date: 'MM/dd/yyyy hh:mm'}}
-			                <p>{{waste.content}}</p>
+		            		<div class="wasteUsername">
+		            			{{userInfo.username}}
+		            		</div>
+		            		<div class="wasteDate">
+			            		{{waste.date | date: 'MMM dd hh:mm'}}
+			            	</div>
+		            	</div>
+		            	<div class="wasteContent">
+		            		{{waste.content}}
 		            	</div>
 		            </div>
 		        </div>

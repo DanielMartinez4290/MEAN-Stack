@@ -7,10 +7,6 @@ body{
 .navbar{
 	margin-bottom: 0;
 }
-.waste-section img {
-    width: 100px;
-    height: 100px;
-}
 .loginForm ul{
 	margin-top: 8px;
 }
@@ -23,15 +19,110 @@ body{
 	max-width: 150px;
 }
 
-.wasteImage{
-	display:inline-block;
-}
 .wasteInfo{
 	display: inline-block;
-	margin-left:20px;
+	margin-left:4px;
+	margin-top: 6px;
 	vertical-align: top;
 }
 .wasteAll{
 	margin-top:15px;
 	background-color:white;
+}
+.userInfo{
+	background-color: white;
+	height:201px;
+	overflow:scroll;
+}
+.userImage{
+	text-align: center;
+}
+.userImageBackground{
+	background-color: white;
+}
+.usernameBackground{
+	background-color: white;
+	text-align: center;
+}
+.userFollowersHeaderBackground{
+	background-color: white;
+	text-align: center;
+}
+.userFollowersBackground{
+	background-color: white;	
+	text-align: center;
+	float:left;
+}
+.followerWhole{
+	padding:0;
+	display: inline-block;
+	height:100px;
+	margin-bottom:9px;
+	position:relative;
+}
+.followerWhole img{
+	max-width:93%;
+	height:100%;
+}
+.wasteImage{
+	display:inline-block;
+	width:40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.wasteImage img{
+	max-width:100%;
+}
+
+.followerUsername{
+	position:absolute;
+	top:81px;
+	color:white;
+	font-size: 13px;
+	width:100%;
+	text-align: center;
+}
+.wasteUsername{
+	color:#365899;
+	font-weight: 700;
+}
+.wasteDate{
+	font-size: 11px;
+}
+.wasteContent{
+	margin-top:6px;
+	margin-left:8px;
+	font-size: 14px;
+}
+.mainUserImage{
+	display:inline-block;
+	width:40px;
+	margin-top: 10px;
+	margin-left:10px;
+}
+.mainUserImage img{
+	max-width:100%;
+}
+.mainUserInfo{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 8px;
+}
+.mainWaste{
+	background-color: white;
+	margin-bottom:20px;
+}
+.mainContainer{
+	margin-top:20px;
+}
+.mainUsername{
+	color:#365899;
+	font-weight: 700;
+}
+.mainUserDate{
+	font-size: 11px;
+}
+.mainUserContent{
+	margin-top: 10px;
+	margin-left: 10px;
 }

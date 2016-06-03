@@ -10,6 +10,31 @@
         else{
             $window.location.href='/#/login';
         }
+
+
+        $http.get('api/users/get').then(function(response){
+            $scope.users = response.data;
+            //console.log($scope.users);
+        })
+        
+        $scope.follow = function(userId, wasterId) {
+            console.log("tripepped");
+            request = { userId: userId,
+                     wasterId: wasterId};
+                     //console.log(request);
+            $http.post('api/users/follow', request).then(function(){
+                console.log("following ", wasterId);
+            })
+        }
+        
+        $scope.checkIsFollowing = function(wasterId){
+            for(var i = 0, len = $scope.user.following.length; i < len; i++){
+                if ($scope.user.following[i].userId === wasterId){
+                    return true;
+                }
+            }
+            return false;
+        }
                             
         $scope.sendWaste = function(event){
             if (event.which === 13){

@@ -14,7 +14,7 @@ module.exports.postWaste = function (req, res){
 }
 
 module.exports.getWastes = function (req, res){
-	console.log(req.body);
+	//console.log(req.body);
     if (!req.body.following){
 	Waste.find({})
           .sort({date: -1})
@@ -44,6 +44,7 @@ module.exports.getWastes = function (req, res){
 
 module.exports.getUserWastes = function(req,res){
     Waste.find({ userId: req.params.id })
+          .sort({date: -1})
           .exec(function(err, allWastes){
         if (err){
             res.error(err)

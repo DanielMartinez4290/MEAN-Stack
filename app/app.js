@@ -30,11 +30,6 @@
                 templateUrl: "app/main/main.html",
                 controller: "MainController"
             })
-			  .state('follow', {
-				url: "/follow-users",
-				templateUrl: "app/follow/follow.html",
-				controller: "FollowController"
-			})
         })
         
         .directive('navigation',function(){
@@ -43,6 +38,6 @@
                 templateUrl:'/app/navigation/navigation.html'
             }
 
-        });
+        })
 
 }());

@@ -23,6 +23,8 @@ module.exports.getUsers = function(req, res){
 }
 
 module.exports.followUser = function(req, res){
+	console.log("follow user tripped");
+	
 	var userId = req.body.userId,
 		wasterId = req.body.wasterId;
 	

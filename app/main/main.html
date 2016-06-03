@@ -8,20 +8,43 @@
         </textarea>
     </div>
     
-    <div class="row">
-        <table class="waste-section">
-        <tr > <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">There are {{difference}} new wastes</a></tr>
-        <tr ng-repeat="waste in wastes">
-            <td>{{waste.user}}
-                <a href="/#/profile/{{waste.userId}}"><image ng-src="{{waste.userImage}}" class="img-responsive"></a>
-            </td>    
-            
-            <td>
-                <strong>{{waste.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
-                <p>{{waste.content}}</p>
-                
-            </td>
-        </tr>
-        </table>
+    <div class="row mainContainer">
+        <div class="wasteSection col-md-9">
+            <div> 
+                <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">There are {{difference}} new wastes</a>
+            </div>
+            <div ng-repeat="waste in wastes">
+                <div class="mainWaste">
+                    <div class="mainUserImage">
+                        <a href="/#/profile/{{waste.userId}}"><img ng-src="{{waste.userImage}}"></a>
+                    </div>    
+                    <div class="mainUserInfo">
+                        <div class="mainUsername">
+                            {{waste.user}}
+                        </div>
+
+                        <div class="mainUserDate">
+                            {{waste.date | date: 'MMM dd hh:mm'}}<br>
+                        </div>
+                    </div>
+                    <div class="mainUserContent">
+                        {{waste.content}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="mainFollowerSection col-md-3">
+            Follow
+            <ul>
+                <li ng-repeat="waster in users"
+                    ng-show="user._id !== waster._id"> {{waster.email}} 
+                    <a ng-click="follow(user._id, waster._id)"
+                       ng-hide="checkIsFollowing(waster._id)">follow</a>
+                    <a ng-click="unfollow(user._id, waster._id)"
+                       ng-show="checkIsFollowing(waster._id)">unfollow</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
