@@ -111,6 +111,7 @@ body{
 .mainWaste{
 	background-color: white;
 	margin-bottom:20px;
+	padding-bottom: 7px;
 }
 .mainContainer{
 	margin-top:20px;
@@ -125,4 +126,26 @@ body{
 .mainUserContent{
 	margin-top: 10px;
 	margin-left: 10px;
+}
+.statusUpdateSection{
+	height:104px;
+	margin-bottom: 20px;
+	position: relative;
+	background-color:white;
+}
+.statusUpdateText{
+	padding-left:70px;
+	height:70px;
+	width:100%;
+}
+.statusUpdate img{
+	height:40px;
+	width:40px;
+	position:absolute;
+	top:12px;
+	left:12px;
+
+}
+.statusUpdateButton{
+	float:right;
 }

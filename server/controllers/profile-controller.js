@@ -36,33 +36,17 @@ module.exports.updatePhoto = function (req, res){
     })
 };
 
-module.exports.updateUsername = function (req, res){
+module.exports.updateUserInfo = function (req, res){
     var username = req.body.username;
+    var bio = req.body.bio;
+    var email = req.body.email;
     var userId = req.body.userId;
-    
+
     User.findById(userId, function (err, userData){
         var user = userData;
         user.username = username;
-        
-        user.save(function(err){
-            if (err){
-                console.log("fail");
-                res.json({status: 500});
-            } else {
-                console.log("success");
-                 res.json({status: 200});
-            }
-        })
-    });
-};
-
-module.exports.updateBio = function (req, res){
-        var bio = req.body.bio;
-    var userId = req.body.userId;
-    
-    User.findById(userId, function (err, userData){
-        var user = userData;
         user.bio = bio;
+        user.email = email;
         
         user.save(function(err){
             if (err){
@@ -70,7 +54,13 @@ module.exports.updateBio = function (req, res){
                 res.json({status: 500});
             } else {
                 console.log("success");
-                 res.json({status: 200});
+                 res.json({email: email,
+                      _id: userData._id,
+                      username: username,
+                      bio: bio,
+                      image: userData.image,
+                      following: userData.following,
+                      followers: userData.followers})
             }
         })
     });

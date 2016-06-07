@@ -10,6 +10,7 @@
         
         $scope.logUserIn = function(){
             
+            
             $http.post('api/user/login', $scope.user).success(function(response){
             	localStorage.setItem('User-Data', JSON.stringify(response));
                 $scope.loggedIn = true;

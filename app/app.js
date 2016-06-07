@@ -39,5 +39,12 @@
             }
 
         })
+        .directive('rightsidebar',function(){
+            return{
+                restrict:'E',
+                templateUrl:'/app/sidebar/rightsidebar.html'
+            }
+
+        })
 
 }());

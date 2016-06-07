@@ -11,7 +11,7 @@
                    $scope.upload($scope.file); 
                 });
                                 
-                
+                console.log($scope.user);
                                 
                 $scope.upload = function (file) {
                     if (file){
@@ -29,31 +29,23 @@
                         })
                     }
                 };
-                                
-                $scope.updateUsername = function () {
+
+                $scope.updateUserInfo = function(){
+
                     var request = {
                         userId: $scope.user._id,
+                        bio: $scope.user.bio,
+                        email: $scope.user.email,
                         username: $scope.user.username
                     }
                     
-                 $http.post('api/profile/updateUsername', request).success(function(){
-                    console.log("success");
-                 }).error(function(error){
-                    console.log("error");
-                 })
-                };
-                                
-                $scope.updateBio = function () {
-                    var request = {
-                        userId: $scope.user._id,
-                        bio: $scope.user.bio
-                    }
-                    
-                $http.post('api/profile/updateBio', request).success(function(){
-                    console.log("success")
-                }).error(function(error){
-                    console.log(error);
-                });
+                    $http.post('api/profile/updateUserInfo', request).success(function(response){
+                        localStorage.setItem('User-Data', JSON.stringify(response));
+                        console.log("success")
+                    }).error(function(error){
+                        console.log(error);
+                    });
+
                 }
                             
                             }]);

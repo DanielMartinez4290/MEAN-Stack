@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
@@ -31,8 +32,7 @@ app.post('/api/user/login', authenticationController.login);
 
 //Profile
 app.post('/api/profile/editPhoto', multipartMiddleware, profileController.updatePhoto);
-app.post('/api/profile/updateUsername', profileController.updateUsername);
-app.post('/api/profile/updateBio', profileController.updateBio);
+app.post('/api/profile/updateUserInfo', profileController.updateUserInfo);
 
 //Waste
 app.post('/api/waste/post', wasteController.postWaste);

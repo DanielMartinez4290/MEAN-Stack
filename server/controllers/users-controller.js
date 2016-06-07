@@ -23,7 +23,6 @@ module.exports.getUsers = function(req, res){
 }
 
 module.exports.followUser = function(req, res){
-	console.log("follow user tripped");
 	
 	var userId = req.body.userId,
 		wasterId = req.body.wasterId;
@@ -31,6 +30,7 @@ module.exports.followUser = function(req, res){
 	Users.findById(wasterId, function(err, waster){
 		waster.followers.push({userId: userId});
 		waster.save();
+		console.log(waster);
 	})
 	
 	Users.findById(userId, function(err, follower){

@@ -36,8 +36,8 @@
             return false;
         }
                             
-        $scope.sendWaste = function(event){
-            if (event.which === 13){
+        $scope.updateStatus = function(){
+            
                var request = {
                     user: $scope.user.username || $scope.user.email,
                     userId: $scope.user._id,
@@ -51,7 +51,7 @@
                }).error(function(error){
                     console.error(error);
                })
-            }
+            
         };
         
         function getWastes (initial){
