@@ -1,1 +1,1 @@
-Custom Twitter application using the MEAN stack
+Custom Facebook look alike application built using the MEAN stack. Functionality includes signup, login, posting to wall, following users, and viewing other users profiles.

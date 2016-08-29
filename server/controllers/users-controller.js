@@ -22,6 +22,7 @@ module.exports.getUsers = function(req, res){
 	})
 }
 
+
 module.exports.followUser = function(req, res){
 	
 	var userId = req.body.userId,
@@ -30,11 +31,13 @@ module.exports.followUser = function(req, res){
 	Users.findById(wasterId, function(err, waster){
 		waster.followers.push({userId: userId});
 		waster.save();
-		console.log(waster);
+		//console.log(waster);
 	})
 	
 	Users.findById(userId, function(err, follower){
 		follower.following.push({userId: wasterId});
 		follower.save();
+		res.json(follower);
 	})
+
 }

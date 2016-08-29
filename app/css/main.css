@@ -149,3 +149,30 @@ body{
 .statusUpdateButton{
 	float:right;
 }
+.logoutButton, .editProfileButton{
+  cursor: pointer;
+  margin-top:15px;
+}
+
+.followEmail{
+	float:left;
+}
+.followButton{
+	float:left;
+	cursor:pointer;
+	margin-left:5px;
+}
+.rightSidebar ul li{
+	list-style-type: none;
+}
+.rightSidebar ul{
+	padding-left:0;
+}
+.followUsersTitle{
+	float:left;
+	font-weight:700;
+	font-size:22px;
+}
+.followUser{
+	height:34px;
+}

@@ -11,7 +11,7 @@ var profileController = require('./server/controllers/profile-controller');
 var wasteController = require('./server/controllers/waste-controller');
 var usersController = require('./server/controllers/users-controller');
 
-mongoose.connect('mongodb://localhost:27017/time-waste');
+mongoose.connect('mongodb://localhost:27017/fb-clone');
 
 app.use(bodyParser.json());
 app.use(multipartMiddleware);

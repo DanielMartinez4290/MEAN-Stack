@@ -1,5 +1,6 @@
 (function(){
     angular.module('TimeWaste', ['ui.router', 'ngFileUpload'])
+
         .config(function($stateProvider, $urlRouterProvider){
             
             $urlRouterProvider.otherwise('/');
@@ -39,6 +40,7 @@
             }
 
         })
+
         .directive('rightsidebar',function(){
             return{
                 restrict:'E',

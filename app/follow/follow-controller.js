@@ -1,6 +1,8 @@
 (function(){
 	angular.module('TimeWaste')
 	.controller('FollowController', ['$scope', '$http', function($scope, $http){
+
+		/*
 		
 		$scope.user = JSON.parse(localStorage['User-Data']);
 		//console.log($scope.user);
@@ -25,5 +27,6 @@
 			}
 			return false;
 		}
+		*/
 	}]);
 }());
