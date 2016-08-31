@@ -32,7 +32,7 @@ module.exports.getWastes = function (req, res){
 	 for (var i = 0, len = req.body.following.length; i < len; i++){
 	 	requestedWastes.push({userId: req.body.following[i].userId});
 	 }
-     //console.log(requestedWastes);
+     console.log(requestedWastes);
      //console.log("space");
  	Waste.find({$or: requestedWastes})
 		.sort({date: -1})
