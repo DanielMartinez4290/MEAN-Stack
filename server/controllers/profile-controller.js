@@ -41,12 +41,14 @@ module.exports.updateUserInfo = function (req, res){
     var bio = req.body.bio;
     var email = req.body.email;
     var userId = req.body.userId;
+    var image = req.body.image;
 
     User.findById(userId, function (err, userData){
         var user = userData;
         user.username = username;
         user.bio = bio;
         user.email = email;
+        user.image = image;
         
         user.save(function(err){
             if (err){
@@ -58,7 +60,7 @@ module.exports.updateUserInfo = function (req, res){
                       _id: userData._id,
                       username: username,
                       bio: bio,
-                      image: userData.image,
+                      image: image,
                       following: userData.following,
                       followers: userData.followers})
             }

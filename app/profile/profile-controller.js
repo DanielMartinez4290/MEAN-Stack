@@ -17,7 +17,11 @@
 
       $scope.userInfo = response;
 
-      for(var i = 0, len = $scope.userInfo.following.length; i <= 3; i++){
+      //console.log($scope.userInfo);
+
+
+      for(var i = 0, len = $scope.userInfo.following.length; i < len; i++){
+        //console.log($scope.userInfo.following[i]);
 
         promises.push($http.get('api/users/getUserInfo/'+$scope.userInfo.following[i].userId, userFollowerInfo).then(function(followerInfo){
 

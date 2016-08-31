@@ -52,6 +52,7 @@ body{
 	background-color: white;	
 	text-align: center;
 	float:left;
+	width:360px;
 }
 .followerWhole{
 	padding:0;
@@ -175,4 +176,7 @@ body{
 }
 .followUser{
 	height:34px;
+}
+.followerSection{
+	margin-top:18px;
 }

@@ -5,15 +5,19 @@
 	</div>
 
 	<div class="row">
+		<!--
 		<div class="button btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" >Update Picture</div></br></br>
+		-->
 		<img ng-src="{{user.image}}" width="100">
 	</div>
 	</br>
 	
 		<form>
+			Image: <input class="form-control" ng-model="user.image" value="user.image">
 			Email: <input class="form-control" ng-model="user.email" value="user.email">
 		    Username: <input class="form-control" ng-model="user.username" value="user.username">
 		    Bio: <input type="text" class="form-control" ng-model="user.bio" value="user.bio"> </input>
+		</br>
 		    <input type="button" class="btn btn-primary statusUpdateButton" ng-click="updateUserInfo()" value="Update" />
 	    </form>
 	

@@ -76,8 +76,9 @@
                }
                
                $http.post('api/waste/post', request).success(function(response){
-                    console.log(response);
+                    //console.log(response);
                     $scope.wastes = response;
+                    $window.location.reload();
                }).error(function(error){
                     console.error(error);
                })

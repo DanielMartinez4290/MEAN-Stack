@@ -1,7 +1,7 @@
 (function(){
     angular.module('TimeWaste')
-    .controller('EditProfileController', ['Upload', '$scope', '$state', '$http',               
-                            function(      Upload,   $scope,   $state,   $http){
+    .controller('EditProfileController', ['Upload', '$scope', '$state', '$http','$location',               
+                            function(      Upload,   $scope,   $state,   $http, $location){
     
                 $scope.user = JSON.parse(localStorage['User-Data']) || undefined;
                                 
@@ -12,7 +12,8 @@
                 });
                                 
                 console.log($scope.user);
-                                
+                
+                /*                
                 $scope.upload = function (file) {
                     if (file){
                         Upload.upload({
@@ -29,6 +30,7 @@
                         })
                     }
                 };
+                */
 
                 $scope.updateUserInfo = function(){
 
@@ -36,12 +38,14 @@
                         userId: $scope.user._id,
                         bio: $scope.user.bio,
                         email: $scope.user.email,
-                        username: $scope.user.username
+                        username: $scope.user.username,
+                        image:$scope.user.image
                     }
                     
                     $http.post('api/profile/updateUserInfo', request).success(function(response){
                         localStorage.setItem('User-Data', JSON.stringify(response));
-                        console.log("success")
+                        console.log("Profile Updated");
+                        $location.path('/#');
                     }).error(function(error){
                         console.log(error);
                     });
