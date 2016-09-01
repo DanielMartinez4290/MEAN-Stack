@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var multipart = require('connect-multipart');
+var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
 var app = express();
