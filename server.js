@@ -45,6 +45,10 @@ app.get('/api/users/get', usersController.getUsers);
 app.post('/api/users/follow', usersController.followUser);
 
 
+app.listen(process.env.PORT || 3000);
+
+/*
 app.listen('3000', function (){
     console.log("Listening for Local Host 3000");
 });
+*/
