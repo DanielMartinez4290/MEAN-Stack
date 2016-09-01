@@ -12,7 +12,7 @@ var wasteController = require('./server/controllers/waste-controller');
 var usersController = require('./server/controllers/users-controller');
 var config = require('./config');
 //mongoose.connect('mongodb://localhost:27017/fb-clone');
-
+//
 mongoose.connect(config.database);
 mongoose.connection.on('error', function() {
   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
