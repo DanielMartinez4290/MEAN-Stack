@@ -14,8 +14,5 @@
   "engines": {
     "node": "0.12.7",
     "npm": "2.7.4"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production node ./"
   }
 }
