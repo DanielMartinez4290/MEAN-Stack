@@ -45,7 +45,8 @@ app.get('/api/users/get', usersController.getUsers);
 app.post('/api/users/follow', usersController.followUser);
 
 
-app.listen(process.env.PORT || 3000);
+app.listen("https://salty-thicket-92811.herokuapp.com/" || 3000);
+//app.listen(process.env.PORT || 3000);
 
 /*
 app.listen('3000', function (){
