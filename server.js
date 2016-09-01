@@ -10,8 +10,14 @@ var authenticationController = require('./server/controllers/authentication-cont
 var profileController = require('./server/controllers/profile-controller');
 var wasteController = require('./server/controllers/waste-controller');
 var usersController = require('./server/controllers/users-controller');
+var config = require('./config');
+//mongoose.connect('mongodb://localhost:27017/fb-clone');
 
-mongoose.connect('mongodb://localhost:27017/fb-clone');
+mongoose.connect(config.database);
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
+});
+
 
 app.use(bodyParser.json());
 app.use(multipartMiddleware);
