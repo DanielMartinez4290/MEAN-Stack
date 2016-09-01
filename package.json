@@ -16,6 +16,6 @@
     "npm": "2.7.4"
   },
   "scripts": {
-    "start": "NODE_ENV=production node ./app"
+    "start": "NODE_ENV=production node ./"
   }
 }
