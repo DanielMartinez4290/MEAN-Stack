@@ -10,5 +10,9 @@
     "mongoose": "^4.1.10",
     "connect-multiparty":"*",
     "fs-extra":"*"
+  },
+  "engines": {
+    "node": "0.12.7",
+    "npm": "2.7.4"
   }
 }
