@@ -9,7 +9,8 @@
     "express": "^4.13.3",
     "mongoose": "^4.1.10",
     "connect-multiparty":"*",
-    "fs-extra":"*"
+    "fs-extra":"*",
+    "ng-file-upload":"*"
   },
   "engines": {
     "node": "0.12.7",
