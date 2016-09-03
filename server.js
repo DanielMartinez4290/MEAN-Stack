@@ -53,3 +53,4 @@ app.post('/api/users/follow', usersController.followUser);
 
 
 app.listen(process.env.PORT || 3000);
+console.log("Listening on Port 3000");
