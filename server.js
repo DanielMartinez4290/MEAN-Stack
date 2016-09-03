@@ -52,7 +52,7 @@ app.post('/api/users/follow', usersController.followUser);
 
 
 
-app.listen(process.env.NODE_ENV || 3000);
+app.listen(process.env.PORT || 3000);
 
 /*
 app.listen('3000', function (){
