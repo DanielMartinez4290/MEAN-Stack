@@ -9,8 +9,9 @@ module.exports.signup = function (req, res){
 }
 
 module.exports.login = function (req, res){
+
     
-    User.find(req.body, function (err, results){
+    User.find({"email":req.body.email,"password":req.body.password}, function (err, results){
         
         if (results.length===0){
             //console.log("Wrong Login Info");

@@ -1,6 +1,6 @@
 (function(){
     angular.module('TimeWaste')
-.controller('LoginController', ['$scope', '$state', '$http','$window','$location', function($scope, $state, $http, $window, $location){
+.controller('LoginController', ['$scope', '$state', '$http','$window','$location','md5', function($scope, $state, $http, $window, $location,md5){
 
 		if (localStorage['User-Data']){
             $scope.loggedIn = true;
@@ -9,6 +9,9 @@
         }
         
         $scope.logUserIn = function(){
+            
+
+            $scope.user.password = md5.createHash($scope.user.passUn || '');
             
             $http.post('api/user/login', $scope.user).success(function(response){
 

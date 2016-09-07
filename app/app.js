@@ -1,9 +1,10 @@
 (function(){
-    angular.module('TimeWaste', ['ui.router', 'ngFileUpload'])
+    angular.module('TimeWaste', ['ui.router', 'ngFileUpload','angular-md5'])
 
-        .config(function($stateProvider, $urlRouterProvider){
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider){
             
             $urlRouterProvider.otherwise('/');
+            //$locationProvider.html5Mode(true);
         
             $stateProvider
                 .state('signUp', {
@@ -32,6 +33,8 @@
                 controller: "MainController"
             })
         })
+        
+        
         
         .directive('navigation',function(){
             return{

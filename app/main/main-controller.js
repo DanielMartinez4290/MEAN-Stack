@@ -9,6 +9,7 @@
         }
         else{
             $window.location.href='/#/login';
+            //$location.path('/login');
         }
 
 
@@ -36,7 +37,7 @@
                 
             }
             $scope.notFollowed = notFollowedUsers;
-            //console.log(notFollowedUsers);
+            console.log(notFollowedUsers);
 
         })
 

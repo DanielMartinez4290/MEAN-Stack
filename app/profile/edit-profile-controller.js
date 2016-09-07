@@ -45,7 +45,7 @@
                     $http.post('api/profile/updateUserInfo', request).success(function(response){
                         localStorage.setItem('User-Data', JSON.stringify(response));
                         console.log("Profile Updated");
-                        $location.path('/#');
+                        $location.path('/');
                     }).error(function(error){
                         console.log(error);
                     });
