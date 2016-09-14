@@ -5,7 +5,8 @@
     
         if (localStorage['User-Data'] !== undefined){
             $scope.user = JSON.parse(localStorage['User-Data']);
-            console.log($scope.user);
+            $scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
+            
         }
         else{
             $window.location.href='/#/login';
@@ -72,13 +73,13 @@
                var request = {
                     user: $scope.user.username || $scope.user.email,
                     userId: $scope.user._id,
-                    userImage: $scope.user.image,
+                    userImage: $scope.userImage.image,
                     content: $scope.newWaste
                }
                
                $http.post('api/waste/post', request).success(function(response){
                     //console.log(response);
-                    $scope.wastes = response;
+                    //$scope.wastes = response;
                     $window.location.reload();
                }).error(function(error){
                     console.error(error);

@@ -7,8 +7,11 @@
                 <div class="statusUpdateSection">
 
                     <form class="statusUpdate">
+                        <!--
                         <input type="text" ng-model="newWaste" class="statusUpdateText" placeholder="What's on your mind?"></input>
-                        <img ng-src="{{user.image}}">
+                    -->
+                        <textarea ng-model="newWaste" class="statusUpdateText" placeholder="What's on your mind?" ></textarea>
+                        <img ng-src="{{userImage.image}}">
                         <input type="button" class="btn btn-primary statusUpdateButton" ng-click="updateStatus()" value="Post" />
                     </form>
                 </div>

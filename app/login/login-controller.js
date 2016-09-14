@@ -12,6 +12,7 @@
             
 
             $scope.user.password = md5.createHash($scope.user.passUn || '');
+            console.log($scope.user.password);
             
             $http.post('api/user/login', $scope.user).success(function(response){
 

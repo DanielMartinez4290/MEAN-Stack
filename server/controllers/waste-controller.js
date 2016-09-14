@@ -2,6 +2,7 @@ var Waste = require('../datasets/wastes');
 module.exports.postWaste = function (req, res){
     var waste = new Waste(req.body);
     waste.save();
+    //res.json("passed");
     
     Waste.find({})
         .sort({date: -1}).exec(function(err, allWastes){
@@ -11,6 +12,7 @@ module.exports.postWaste = function (req, res){
             res.json(allWastes);
         }
     });
+    
 }
 
 module.exports.getWastes = function (req, res){

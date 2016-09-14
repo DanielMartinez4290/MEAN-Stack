@@ -7,8 +7,9 @@
             $scope.createUser = function(){
 
                 $scope.newUser.username = $scope.newUser.firstName + " " + $scope.newUser.lastName;
-                
                 $scope.newUser.password = md5.createHash($scope.newUser.password || '');
+
+                $scope.newUser.image = 'https://www.dropbox.com/s/6aosv3i1gk2m3er/gravatar-60-grey-300x300.jpg?raw=1';
 
                 //console.log($scope.newUser.password);
 
