@@ -4,7 +4,8 @@
                             function(      Upload,   $scope,   $state,   $http, $location){
     
                 $scope.user = JSON.parse(localStorage['User-Data']) || undefined;
-                $scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
+                //$scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
+                $scope.userImage = {"image":'https://www.dropbox.com/s/6aosv3i1gk2m3er/gravatar-60-grey-300x300.jpg?raw=1'};
                                 
                 $scope.$watch(function(){
                     return $scope.file

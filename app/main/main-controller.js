@@ -5,7 +5,9 @@
     
         if (localStorage['User-Data'] !== undefined){
             $scope.user = JSON.parse(localStorage['User-Data']);
-            $scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
+            $scope.userImage = {"image":'https://www.dropbox.com/s/6aosv3i1gk2m3er/gravatar-60-grey-300x300.jpg?raw=1'};
+            //$scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
+            //$scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
             
         }
         else{
@@ -52,6 +54,7 @@
             $http.post('api/users/follow', request).then(function(response){
                 localStorage.clear();
                 localStorage.setItem('User-Data', JSON.stringify(response.data));
+                //$scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
                 //$location.path('/');
                 $window.location.reload();
             })
