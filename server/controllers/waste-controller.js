@@ -16,26 +16,28 @@ module.exports.postWaste = function (req, res){
 }
 
 module.exports.getWastes = function (req, res){
-	//console.log(req.body);
-    if (!req.body.following){
-        //console.log("returning all wastes");
-	Waste.find({})
-          .sort({date: -1})
-          .exec(function(err, allWastes){
-        if (err){
-            res.error(err)
-        } else {
-            res.json(allWastes);
-        }
-    })
- } else {
-    //console.log("returning user wastes");
-	 var requestedWastes = [];
-	 for (var i = 0, len = req.body.following.length; i < len; i++){
-	 	requestedWastes.push({userId: req.body.following[i].userId});
-	 }
-     //console.log(requestedWastes);
-     //console.log("space");
+	
+     console.log("returning user wastes");
+  	 var requestedWastes = [];
+       
+  	 for (var key in req.body.following) {
+        requestedWastes.push({userId: req.body.following[key]});
+      }
+
+      console.log(requestedWastes);
+      console.log("space");
+
+      var wasteImages = Waste.aggregate([{
+        $lookup:{from: "user",localField: "userId",foreignField: "_id",as: "waste_images"}}
+      ],function(err,result){
+        //console.log(err);
+        console.log(result);
+      });
+
+    
+      //console.log(wasteImages);
+
+/*
  	Waste.find({$or: requestedWastes})
 		.sort({date: -1})
 		.exec(function(err, allWastes){
@@ -45,7 +47,8 @@ module.exports.getWastes = function (req, res){
 							res.json(allWastes);
 						}
 						})
- };
+*/
+
 }
 
 module.exports.getUserWastes = function(req,res){

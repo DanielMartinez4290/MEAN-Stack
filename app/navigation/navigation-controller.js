@@ -4,7 +4,7 @@
         
 
         setInterval(function(){
-            if (localStorage['User-Data']){
+            if (localStorage['User-Email']){
                 $scope.loggedIn = true;
             } else {
                 $scope.loggedIn = false;

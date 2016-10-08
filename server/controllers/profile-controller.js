@@ -2,6 +2,7 @@ var User = require('../datasets/users');
 var fs = require('fs-extra');
 var path = require('path');
 
+
 module.exports.updatePhoto = function (req, res){
     var file = req.files.file;
     var userId = req.body.userId;
@@ -36,13 +37,20 @@ module.exports.updatePhoto = function (req, res){
 };
 
 module.exports.updateUserInfo = function (req, res){
+    console.log(req.body);
     var username = req.body.username;
     var bio = req.body.bio;
     var email = req.body.email;
     var userId = req.body.userId;
+    console.log(typeof userId);
+    //var userId = "57f09311461e4132653a9bec";
+    //var o_id = new ObjectId(userId);
+
 
 
     User.findById(userId, function (err, userData){
+        console.log("found user");
+        console.log(userData);
         var user = userData;
         user.username = username;
         user.bio = bio;
