@@ -1,17 +1,25 @@
 var Waste = require('../datasets/wastes');
 module.exports.postWaste = function (req, res){
+  //console.log(req);
+  //console.log(req.body);
+
     var waste = new Waste(req.body);
     waste.save();
-    //res.json("passed");
-    
+    console.log(waste);
+    console.log("passed");
+    res.json("passed");
+    /*
     Waste.find({})
         .sort({date: -1}).exec(function(err, allWastes){
+          console.log(err);
+          console.log(allWastes);
         if (err){
             res.error(err);
         } else {
             res.json(allWastes);
         }
     });
+*/
     
 }
 
@@ -19,35 +27,28 @@ module.exports.getWastes = function (req, res){
 	
      console.log("returning user wastes");
   	 var requestedWastes = [];
-       
+       //console.log(req.body.following);
   	 for (var key in req.body.following) {
-        requestedWastes.push({userId: req.body.following[key]});
+        requestedWastes.push({userId: req.body.following[key].userId});
       }
-
-      console.log(requestedWastes);
       console.log("space");
+      console.log(requestedWastes);
+      
 
-      var wasteImages = Waste.aggregate([{
-        $lookup:{from: "user",localField: "userId",foreignField: "_id",as: "waste_images"}}
-      ],function(err,result){
-        //console.log(err);
-        console.log(result);
+      Waste
+      .find({$or: requestedWastes})
+      .populate('userId')
+      .sort({date: -1})
+      .exec(function (err, wastes) {
+
+        if (err){
+              res.error(err);
+        } else {
+          res.json(wastes);
+        }
+        
       });
 
-    
-      //console.log(wasteImages);
-
-/*
- 	Waste.find({$or: requestedWastes})
-		.sort({date: -1})
-		.exec(function(err, allWastes){
-						if (err){
-							res.error(err)
-						} else {
-							res.json(allWastes);
-						}
-						})
-*/
 
 }
 

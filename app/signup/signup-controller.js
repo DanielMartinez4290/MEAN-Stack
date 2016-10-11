@@ -12,6 +12,7 @@
                 $scope.newUser.image = 'https://www.dropbox.com/s/6aosv3i1gk2m3er/gravatar-60-grey-300x300.jpg?raw=1';
                 //localStorage.setItem('User-Image', JSON.stringify({"image":$scope.newUser.image}));
                 localStorage.setItem('User-Image', $scope.newUser.image);
+                
 
                 //console.log($scope.newUser.password);
 

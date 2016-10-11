@@ -5,10 +5,10 @@
 </br>
 	<div class="followerSection">	
 		<ul>
-			<li ng-repeat="waster in notFollowed" class="followUser" ng-show="user._id !== waster._id"> 
+			<li ng-repeat="waster in notFollowed" class="followUser" ng-show="userId !== waster._id"> 
 				<div class="followImage"><img src="{{waster.image}}"></div>
 				<div class="followUsername"><div class="followUsernameText">{{waster.username}}</div> </div>
-				<a ng-click="follow(user._id, waster._id)"><div class="followButton">Follow</div></a>
+				<a ng-click="follow(userId, waster._id)"><div class="followButton">Follow</div></a>
 			</li>
 		</ul>
 	</div>
