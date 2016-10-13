@@ -7,9 +7,6 @@
                 <div class="statusUpdateSection">
 
                     <form class="statusUpdate">
-                        <!--
-                        <input type="text" ng-model="newWaste" class="statusUpdateText" placeholder="What's on your mind?"></input>
-                    -->
                         <textarea ng-model="newWaste" class="statusUpdateText" placeholder="What's on your mind?" ></textarea>
                         <img ng-src="{{userImage}}">
                         <input type="button" class="btn btn-primary statusUpdateButton" ng-click="updateStatus()" value="Post" />
@@ -24,7 +21,7 @@
                 <div ng-repeat="waste in wastes">
                     <div class="mainWaste">
                         <div class="mainUserImage">
-                            <a href="/#/profile/{{waste.userId}}"><img ng-src="{{waste.userId.image}}"></a>
+                            <a href="/#/profile/{{waste.userId._id}}"><img ng-src="{{waste.userId.image}}"></a>
                         </div>    
                         <div class="mainUserInfo">
                             <div class="mainUsername">

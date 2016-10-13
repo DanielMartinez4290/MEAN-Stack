@@ -1,13 +1,36 @@
 var Waste = require('../datasets/wastes');
 module.exports.postWaste = function (req, res){
   //console.log(req);
-  //console.log(req.body);
+  console.log(req.body);
+  
 
-    var waste = new Waste(req.body);
+    var waste = new Waste({user: req.body.user,userId: req.body.userId,content:req.body.content});
     waste.save();
-    console.log(waste);
-    console.log("passed");
-    res.json("passed");
+    var requestedWastes = [];
+       //console.log(req.body.following);
+     for (var key in req.body.following) {
+        requestedWastes.push({userId: req.body.following[key].userId});
+      }
+      console.log("space");
+      console.log(requestedWastes);
+      
+
+      Waste
+      .find({$or: requestedWastes})
+      .populate('userId')
+      .sort({date: -1})
+      .exec(function (err, wastes) {
+
+        if (err){
+              res.error(err);
+        } else {
+          res.json(wastes);
+        }
+        
+      });
+    
+
+
     /*
     Waste.find({})
         .sort({date: -1}).exec(function(err, allWastes){

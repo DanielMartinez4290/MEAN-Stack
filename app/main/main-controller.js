@@ -26,6 +26,11 @@
         $http.get('api/users/get').then(function(response){
             $scope.users = response.data;
             //console.log($scope.users);
+            if($scope.userFollowing==""){
+                var userFollowingArray = [];    
+            }else{
+                var userFollowingArray = JSON.parse($scope.userFollowing);    
+            }
             
             
             var notFollowedUsers = [];
@@ -35,11 +40,12 @@
                 //console.log($scope.users[i]._id);
                 flag = 0;
                 
-                
-                    for(var j = 0, len2 = $scope.userFollowing.length; j < len2; j++){
+                //console.log(JSON.parse($scope.userFollowing).length);
+                    for(var j = 0, len2 = userFollowingArray.length; j < len2; j++){
                         //console.log($scope.userFollowing[j]._id);
+                        console.log("tripped");
 
-                        if($scope.userFollowing[j].userId==$scope.users[i]._id){
+                        if(userFollowingArray[j].userId==$scope.users[i]._id){
                             flag = 1;
                             //console.log("tripped");
                         }
@@ -55,7 +61,7 @@
                 
             }
             $scope.notFollowed = notFollowedUsers;
-            //console.log(notFollowedUsers);
+            console.log(notFollowedUsers);
             
 
         })
@@ -76,25 +82,38 @@
                 //localStorage.setItem('User-Data', JSON.stringify(response.data));
                 //$scope.userImage = JSON.parse(localStorage['User-Image']) || undefined;
                 //$location.path('/');
-                //$window.location.reload();
+                $window.location.reload();
             })
         }
         
                             
         $scope.updateStatus = function(){
             //console.log($scope.userId);
+
             
                var request = {
-                    user: $scope.userUsername || $scope.userEmail,
+                    user: $scope.userUsername,
                     userId: $scope.userId,
-                    content: $scope.newWaste
+                    content: $scope.newWaste,
                }
+               request.following = [];
+
+               if ($scope.userFollowing==""){
+                    request.following.push({userId:$scope.userId});
+                }
+                else{
+                    request.following = JSON.parse(angular.copy($scope.userFollowing));
+                    request.following.push({userId:$scope.userId});
+                }
+
+
                //console.log(request);
                
                $http.post('api/waste/post', request).success(function(response){
                     //console.log(response);
-                    //$scope.wastes = response;
-                    $window.location.reload();
+                    $scope.wastes = response;
+                    $scope.newWaste = null;
+                    //$window.location.reload();
                }).error(function(error){
                     console.log("Error in Update Status");
                     console.error(error);
@@ -122,9 +141,6 @@
                 //data.following = {userId: $scope.userId};
                 //data.following.push($scope.userFollowing);
                 //data.following = angular.copy($scope.userFollowing);
-                
-                
-                
             }
             
 			//console.log(data);
