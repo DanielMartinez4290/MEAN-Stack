@@ -110,7 +110,8 @@
                //console.log(request);
                
                $http.post('api/waste/post', request).success(function(response){
-                    //console.log(response);
+                    console.log("waste posted");
+                    console.log(response);
                     $scope.wastes = response;
                     $scope.newWaste = null;
                     //$window.location.reload();

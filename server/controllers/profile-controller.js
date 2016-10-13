@@ -7,12 +7,14 @@ module.exports.updatePhoto = function (req, res){
     var file = req.files.file;
     var userId = req.body.userId;
     
-    console.log("User " + userId + " is submitting " , file);
+    console.log("User " + userId + " is submitting " + file);
     var uploadDate = new Date().toISOString();
+    console.log(uploadDate);
    
     
     var tempPath = file.path;
     var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
+    console.log("the target path is " + targetPath);
     var savePath = "/uploads/" + userId + uploadDate + file.name;
     
     fs.rename(tempPath, targetPath, function (err){
