@@ -14,9 +14,9 @@ module.exports.updatePhoto = function (req, res){
     
     var tempPath = file.path;
     console.log("the temp path is " + tempPath);
-    var targetPath = path.join(__dirname, "../../../tmp/" + userId + uploadDate + file.name);
+    var targetPath = path.join(__dirname, "../../../uploads/" + userId + uploadDate + file.name);
     console.log("the target path is " + targetPath);
-    var savePath = "/tmp/" + userId + uploadDate + file.name;
+    var savePath = "/uploads/" + userId + uploadDate + file.name;
     console.log("the save path is " + savePath);
 
     //var savePath = "/uploads/" + userId;
