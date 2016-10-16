@@ -15,13 +15,14 @@ module.exports.updatePhoto = function (req, res){
     var tempPath = file.path;
     console.log("the temp path is " + tempPath);
     var targetPath = path.join(__dirname, "../../../uploads/" + userId + uploadDate + file.name);
+    //var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
     console.log("the target path is " + targetPath);
     var savePath = "/uploads/" + userId + uploadDate + file.name;
     console.log("the save path is " + savePath);
 
     //var savePath = "/uploads/" + userId;
     
-    fs.rename(tempPath, targetPath, function (err){
+    fs.move(tempPath, targetPath, function (err){
         if (err){
             console.log(err)
         } else {
