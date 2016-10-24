@@ -29,8 +29,8 @@
                     localStorage.setItem('User-Password', response.password);
                     localStorage.setItem('User-Email', response.email);
                     localStorage.setItem('User-Bio', response.bio);
-                    localStorage.setItem('User-Followers', response.followers);
-                    localStorage.setItem('User-Following', response.following);
+                    localStorage.setItem('User-Followers', JSON.stringify(response.followers));
+                    localStorage.setItem('User-Following', JSON.stringify(response.following));
                     localStorage.setItem('User-Image', response.image);
                     $scope.loggedIn = true;
                     $location.path('/#');
