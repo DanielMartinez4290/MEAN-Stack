@@ -207,6 +207,14 @@ body{
   padding-top:5px;
   padding-bottom:5px;
 }
+.successMessage{
+  background-color:#5cb85c;
+  color:white;
+  text-align:center;
+  font-size:18px;
+  padding-top:5px;
+  padding-bottom:5px;
+}
 .loginButton{
 	margin-top:5px;
 }

@@ -64,7 +64,8 @@
                         localStorage.setItem('User-Username', response.username);
                         localStorage.setItem('User-Bio', response.bio);
                         console.log("Profile Updated");
-                        $location.path('/');
+                        $scope.successMessage = true;
+                        //$location.path('/');
                     }).error(function(error){
                         console.log(error);
                     });
