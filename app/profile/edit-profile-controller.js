@@ -34,11 +34,13 @@
                             file: file
                         }).progress(function(evt){
                             console.log("Image currently being uploaded");
+                            $scope.imageUploading = true;
                         }).success(function(data){
                             console.log("Image Uploaded " + data);
                             localStorage.setItem('User-Image', data.image);
                             //localStorage.setItem('User-Image', data);
                             $scope.user.userImage = data.image;
+                            $scope.imageUploading = false;
                             $scope.successMessage = true;
                             //$scope.user.userImage = data;
                         }).error(function(error){
