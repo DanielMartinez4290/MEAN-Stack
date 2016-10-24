@@ -2,13 +2,6 @@ var User = require('../datasets/users');
 var fs = require('fs-extra');
 var path = require('path');
 
-/*
-//var config = require('./config');
-var mongo = require('mongodb')
-var MongoClient = require('mongodb').MongoClient,
-Grid = mongo.Grid;
-*/
-
 module.exports.updatePhoto = function (req, res){
     var file = req.files.file;
     //console.log(req.files);
@@ -57,27 +50,6 @@ module.exports.updatePhoto = function (req, res){
     }else
         return res.json('File not uploaded');
     
-    /*
-    fs.move(tempPath, targetPath, function (err){
-        if (err){
-            console.log(err)
-        } else {
-            User.findById(userId, function(err, userData){
-                var user = userData;
-                user.image = savePath;
-                user.save(function(err){
-                    if (err){
-                        console.log("failed save")
-                        res.json({status: 500})
-                    } else {
-                        console.log("save successful");
-                        res.json({image:user.image})
-                    }
-                })
-            })
-        }
-    })
-*/
     
 };
 

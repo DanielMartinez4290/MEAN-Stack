@@ -15,34 +15,21 @@ module.exports.postWaste = function (req, res){
       console.log(requestedWastes);
       
 
-      Waste
-      .find({$or: requestedWastes})
-      .populate('userId')
-      .sort({date: -1})
-      .exec(function (err, wastes) {
+      setTimeout(function(){ 
+          Waste
+        .find({$or: requestedWastes})
+        .populate('userId')
+        .sort({date: -1})
+        .exec(function (err, wastes) {
 
-        if (err){
-              res.error(err);
-        } else {
-          res.json(wastes);
-        }
-        
-      });
-    
-
-
-    /*
-    Waste.find({})
-        .sort({date: -1}).exec(function(err, allWastes){
-          console.log(err);
-          console.log(allWastes);
-        if (err){
-            res.error(err);
-        } else {
-            res.json(allWastes);
-        }
-    });
-*/
+          if (err){
+                res.error(err);
+          } else {
+            res.json(wastes);
+          }
+          
+        });
+      }, 3000);
     
 }
 
