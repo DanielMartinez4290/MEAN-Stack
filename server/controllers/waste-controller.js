@@ -29,7 +29,7 @@ module.exports.postWaste = function (req, res){
           }
           
         });
-      }, 500);
+      }, 300);
     
 }
 
