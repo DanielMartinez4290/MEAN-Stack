@@ -2,9 +2,18 @@ var User = require('../datasets/users');
 var fs = require('fs-extra');
 var path = require('path');
 
+/*
+//var config = require('./config');
+var mongo = require('mongodb')
+var MongoClient = require('mongodb').MongoClient,
+Grid = mongo.Grid;
+*/
 
 module.exports.updatePhoto = function (req, res){
     var file = req.files.file;
+    //console.log(req.files);
+    console.log("spaccceeeee");
+    console.log(req.files.file);
     var userId = req.body.userId;
     
     console.log("User " + userId + " is submitting " + file);
@@ -14,14 +23,41 @@ module.exports.updatePhoto = function (req, res){
     
     var tempPath = file.path;
     console.log("the temp path is " + tempPath);
-    var targetPath = path.join(__dirname, "../../../uploads/" + userId + uploadDate + file.name);
-    //var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
+    //var targetPath = path.join(__dirname, "../../../uploads/" + userId + uploadDate + file.name);
+    var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
     console.log("the target path is " + targetPath);
     var savePath = "/uploads/" + userId + uploadDate + file.name;
     console.log("the save path is " + savePath);
+  
 
     //var savePath = "/uploads/" + userId;
+    var is = fs.createReadStream(tempPath);
+    var os = fs.createWriteStream(targetPath);
+
+    if(is.pipe(os)) {
+        fs.unlink(tempPath, function (err) { //To unlink the file from temp path after copy
+            if (err) {
+                console.log(err);
+            }
+        });
+        //return res.json(targetPath);
+        User.findById(userId, function(err, userData){
+                var user = userData;
+                user.image = savePath;
+                user.save(function(err){
+                    if (err){
+                        console.log("failed save")
+                        res.json({status: 500})
+                    } else {
+                        console.log("save successful");
+                        res.json({image:user.image})
+                    }
+                })
+            })
+    }else
+        return res.json('File not uploaded');
     
+    /*
     fs.move(tempPath, targetPath, function (err){
         if (err){
             console.log(err)
@@ -41,6 +77,8 @@ module.exports.updatePhoto = function (req, res){
             })
         }
     })
+*/
+    
 };
 
 module.exports.updateUserInfo = function (req, res){

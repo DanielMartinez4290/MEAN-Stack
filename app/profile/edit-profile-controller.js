@@ -35,9 +35,11 @@
                         }).progress(function(evt){
                             console.log("Image currently being uploaded");
                         }).success(function(data){
-                            console.log("Image Uploaded");
+                            console.log("Image Uploaded " + data);
                             localStorage.setItem('User-Image', data.image);
+                            //localStorage.setItem('User-Image', data);
                             $scope.user.userImage = data.image;
+                            //$scope.user.userImage = data;
                         }).error(function(error){
                             console.log(error);
                         })
