@@ -39,6 +39,7 @@
                             localStorage.setItem('User-Image', data.image);
                             //localStorage.setItem('User-Image', data);
                             $scope.user.userImage = data.image;
+                            $scope.successMessage = true;
                             //$scope.user.userImage = data;
                         }).error(function(error){
                             console.log(error);
